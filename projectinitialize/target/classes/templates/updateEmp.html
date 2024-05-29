@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Employee</title>
+    <link rel="stylesheet" href="/css/Style.css">
+    
+</head>
+<body>
+    
+    <form th:action="@{/emp/edit}" th:object="${emp}" method="post">
+    <h1>Update Employee</h1>
+        <input type="hidden" th:field="*{id}" />
+        <div>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" th:field="*{firstname}" />
+            <div th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">First Name Error</div>
+        </div>
+        <div>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" th:field="*{lastname}" />
+            <div th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Last Name Error</div>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" />
+            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+        </div>
+        <div>
+            <label for="dep">Department:</label>
+            <input type="text" id="dep" th:field="*{dep}" />
+            <div th:if="${#fields.hasErrors('dep')}" th:errors="*{dep}">Department Error</div>
+        </div>
+        <div>
+            <button type="submit">Update Employee</button>
+        </div>
+    </form>
+</body>
+</html>
